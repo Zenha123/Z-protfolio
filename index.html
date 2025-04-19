@@ -1,0 +1,514 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Abdul Raheem PC | Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			:root {
+				--black: #000000;
+				--white: #ffffff;
+				--dark-gray: #333333;
+				--medium-gray: #666666;
+				--light-gray: #f5f5f5;
+				--border-gray: #dddddd;
+			}
+           /* :root {
+  --primary: #4a6fa5;      Green for positive indicators */
+
+			
+			body {
+				background-color: var(--white);
+				color: var(--black);
+			}
+			
+			/* About Section */
+			.about-container {
+				display: flex;
+				align-items: center;
+				gap: 3rem;
+				margin-bottom: 3rem;
+			}
+			
+			.profile-image {
+				flex: 1;
+				display: flex;
+				justify-content: center;
+			}
+			
+			.profile-image img {
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 5px solid var(--black);
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			}
+			
+			.about-content {
+				flex: 2;
+				padding: 1rem;
+			}
+			
+			/* Skills Section */
+			.skills {
+				background-color: var(--light-gray);
+				padding: 80px 0 100px 0;
+				margin-bottom: 1px;
+			}
+			
+			.skills h2 {
+				font-size: 30px;
+				color: var(--black);
+			}	
+			
+			.skill-row {
+				width: 50%;
+				margin: 100px auto;
+				text-align: left; 
+				line-height: 2;
+			}
+			
+			/* Experience Section */
+			.experience-container {
+				background-color: var(--white);
+				padding: 80px 0;
+			}
+			
+			.experience-header {
+				margin-bottom: 20px;
+			}
+			
+			.experience-title {
+				font-size: 1.5rem;
+				color: var(--black);
+				margin-bottom: 5px;
+			}
+			
+			.experience-company {
+				color: var(--medium-gray);
+				font-weight: 600;
+			}
+			
+			/* Projects Section */
+			.projects-scroll {
+				display: flex;
+				overflow-x: auto;
+				gap: 2rem;
+				padding-bottom: 1rem;
+				scroll-snap-type: x mandatory;
+			}
+			
+			.project-card {
+				min-width: 320px;
+				background: var(--white);
+				border-radius: 5px;
+				overflow: hidden;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				border: 1px solid var(--border-gray);
+				scroll-snap-align: start;
+				transition: all 0.3s ease;
+			}
+			
+			.project-card:hover {
+				box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+				transform: translateY(-5px);
+			}
+			
+			.project-image {
+				height: 200px;
+				overflow: hidden;
+				border-bottom: 1px solid var(--border-gray);
+			}
+			
+			.project-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+			
+			.project-card:hover .project-image img {
+				transform: scale(1.05);
+			}
+			
+			.project-info {
+				padding: 1.5rem;
+			}
+			
+			.project-description {
+				position: relative;
+				overflow: hidden;
+				line-height: 1.6;
+				margin-bottom: 1.5rem;
+				color: var(--dark-gray);
+			}
+			
+			.project-description.collapsed {
+				max-height: 4.8em;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+			}
+			
+			.read-more-btn {
+				display: inline-block;
+				color: var(--black);
+				font-weight: 600;
+				cursor: pointer;
+				margin-top: 0.5rem;
+				text-decoration: underline;
+			}
+			
+			.read-more-btn i {
+				margin-left: 0.3rem;
+				transition: transform 0.3s ease;
+			}
+			
+			/* Skills Tags */
+			.skill-tag {
+				display: inline-block;
+				background: var(--black);
+				color: var(--white);
+				padding: 0.4rem 1rem;
+				border-radius: 20px;
+				margin: 0.3rem;
+				font-size: 0.9rem;
+				transition: all 0.3s ease;
+			}
+			
+			.skill-tag:hover {
+				background: var(--dark-gray);
+			}
+			
+			/* Testimonials */
+			.testimonials-scroll {
+				display: flex;
+				overflow-x: auto;
+				gap: 2rem;
+				padding-bottom: 1rem;
+			}
+			
+			.testimonial-card {
+				min-width: 300px;
+				background: var(--white);
+				padding: 2rem;
+				border-radius: 5px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				border: 1px solid var(--border-gray);
+			}
+			
+			.testimonial-text {
+				position: relative;
+				padding-left: 1.5rem;
+				margin-bottom: 1.5rem;
+				font-style: italic;
+				color: var(--dark-gray);
+			}
+			
+			.testimonial-text:before {
+				content: '"';
+				font-size: 3rem;
+				color: var(--black);
+				opacity: 0.2;
+				position: absolute;
+				left: -0.5rem;
+				top: -1rem;
+			}
+			
+			.testimonial-author {
+				font-weight: 600;
+				color: var(--black);
+			}
+			
+			.testimonial-role {
+				color: var(--medium-gray);
+				font-size: 0.9rem;
+			}
+			
+			/* Buttons */
+			.button {
+				background-color: var(--black);
+				color: var(--white) !important;
+				border: 1px solid var(--black);
+			}
+			
+			.button:hover {
+				background-color: var(--white);
+				color: var(--black) !important;
+			}
+			
+			/* Responsive Adjustments */
+			@media screen and (max-width: 736px) {
+				.about-container {
+					flex-direction: column;
+					text-align: center;
+				}
+				
+				.profile-image {
+					margin-bottom: 1.5rem;
+				}
+				
+				.project-card {
+					min-width: 280px;
+				}
+				
+				.skill-row {
+					width: 80%;
+				}
+			}
+		</style>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Abdul Raheem PC</h1>
+						<p>Python Developer specializing in Django, FastAPI, and cloud deployments</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">AR Portfolio</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#experience">Experience</a></li>
+							<li><a href="#projects">Projects</a></li>
+							<li><a href="#testimonials">Testimonials</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000">
+
+						<!-- About Section -->
+							<article class="post featured" id="about">
+								<header class="major">
+									<h2>About Me</h2>
+								</header>
+								
+								<div class="about-container">
+									<div class="profile-image">
+										<img src="images/img.jpg" alt="Abdul Raheem PC" />
+									</div>
+									<div class="about-content">
+										<p>I'm a passionate Python developer with experience in creating scalable backend solutions. I specialize in Django, FastAPI, and cloud deployments with a focus on performance and maintainability.</p>
+										
+										<h3>Skills</h3>
+										<div id="skills">
+											<span class="skill-tag">Python</span>
+											<span class="skill-tag">Django</span>
+											<span class="skill-tag">Flask</span>
+											<span class="skill-tag">FastAPI</span>
+											<span class="skill-tag">PostgreSQL</span>
+											<span class="skill-tag">REST API</span>
+											<span class="skill-tag">GraphQL</span>
+											<span class="skill-tag">AWS</span>
+											<span class="skill-tag">Azure</span>
+											<span class="skill-tag">Docker</span>
+											<span class="skill-tag">Git</span>
+											<span class="skill-tag">Celery</span>
+											<span class="skill-tag">JavaScript</span>
+										</div>
+										
+										<ul class="actions special">
+											<li><a href="#" class="button large">Download CV</a></li>
+										</ul>
+									</div>
+								</div>
+							</article>
+
+						<!-- Experience Section -->
+						<div class="skills">
+							<h2 class="head">My Experience</h2>
+							<div class="skill-row">
+								<h3>Python Developer</h3>
+								<p class="experience-company">Imiot Technolab LLP Ltd · Kannur (Sept 2023-Oct 2024)</p>
+								<p>Led cloud-backend Django projects with real-time system using Firebase, AWS, DRF</p>
+							</div>
+							<div class="skill-row">
+								<h3>Python Intern</h3>
+								<p class="experience-company">VectorUX · Thiassery (June 2023-Sept 2023)</p>
+								<p>Built REST APIs and GraphQL services. Learned cloud deployment with custom domains</p>
+							</div>
+						</div>
+
+						<!-- Projects Section -->
+							<article class="post featured" id="projects">
+								<header class="major">
+									<h2>My Projects</h2>
+								</header>
+								
+								<div class="projects-scroll">
+									<article class="project-card">
+										
+										<div class="project-info">
+											<h3>ShareInfo for Aspirants</h3>
+											<div class="project-description collapsed">
+												<p>Replaced the traditional placement portal with a web application, integrating LinkedIn-like features tailored for campus placements. Backend developed using Django, leveraging the Django ORM with a PostgreSQL database for efficient data management. Hosted on Azure, with Celery used for handling background tasks, including email and notification dispatch, ensuring scalability and performance.</p>
+											</div>
+											<span class="read-more-btn">Read more <i class="fas fa-chevron-down"></i></span>
+											<ul class="actions special">
+												<li><a href="#" class="button">View Project</a></li>
+											</ul>
+										</div>
+									</article>
+									
+									<article class="project-card">
+										
+										<div class="project-info">
+											<h3>Travel Experience-Sharing Platform</h3>
+											<div class="project-description collapsed">
+												<p>Developed a Mobile Application featuring Instagram-style image and video posts, event updates, and curated tour packages. Built the backend using Django, integrating RESTful APIs to power dynamic user interactions. Optimized API performance and implemented cloud storage solutions for efficient media upload and retrieval.</p>
+											</div>
+											<span class="read-more-btn">Read more <i class="fas fa-chevron-down"></i></span>
+											<ul class="actions special">
+												<li><a href="#" class="button">View Project</a></li>
+											</ul>
+										</div>
+									</article>
+									
+									<article class="project-card">
+										
+										<div class="project-info">
+											<h3>Spa Booking System</h3>
+											<div class="project-description collapsed">
+												<p>Designed and implemented a Mobile Application enabling users to browse services, check availability, and book spa appointments seamlessly. Created robust backend functionality using Django REST Framework (DRF), ensuring reliable and secure data handling for user bookings and schedules.</p>
+											</div>
+											<span class="read-more-btn">Read more <i class="fas fa-chevron-down"></i></span>
+											<ul class="actions special">
+												<li><a href="#" class="button">View Project</a></li>
+											</ul>
+										</div>
+									</article>
+								</div>
+							</article>
+							
+							
+
+						<!-- Contact Section -->
+							<section class="post featured" id="contact">
+								<header class="major">
+									<h2>Get In Touch</h2>
+								</header>
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<div class="contact-info">
+											<p><i class="fas fa-envelope"></i> rahee9156@gmail.com</p>
+											<p><i class="fas fa-phone"></i> +918137991559</p>
+											<p><i class="fas fa-map-marker-alt"></i> Kannur, Kerala</p>
+										</div>
+										<ul class="icons">
+											<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+											<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										</ul>
+									</div>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Abdul Raheem PC</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				// Read More/Less functionality
+				document.querySelectorAll('.read-more-btn').forEach(button => {
+					button.addEventListener('click', function() {
+						const description = this.previousElementSibling;
+						description.classList.toggle('collapsed');
+						
+						if (description.classList.contains('collapsed')) {
+							this.innerHTML = 'Read more <i class="fas fa-chevron-down"></i>';
+						} else {
+							this.innerHTML = 'Read less <i class="fas fa-chevron-up"></i>';
+						}
+					});
+				});
+				
+				// Auto-scroll for projects
+				const projectsScroll = document.querySelector('.projects-scroll');
+				let scrollAmount = 0;
+				let scrollEnd = false;
+				let scrollInterval;
+				
+				function startAutoScroll() {
+					scrollInterval = setInterval(() => {
+						if (!scrollEnd) {
+							scrollAmount += 1;
+							projectsScroll.scrollLeft = scrollAmount;
+							
+							if (scrollAmount >= projectsScroll.scrollWidth - projectsScroll.clientWidth) {
+								scrollEnd = true;
+							}
+						} else {
+							scrollAmount -= 1;
+							projectsScroll.scrollLeft = scrollAmount;
+							
+							if (scrollAmount <= 0) {
+								scrollEnd = false;
+							}
+						}
+					}, 30);
+				}
+				
+				// Pause auto-scroll on hover
+				projectsScroll.addEventListener('mouseenter', () => {
+					clearInterval(scrollInterval);
+				});
+				
+				projectsScroll.addEventListener('mouseleave', () => {
+					startAutoScroll();
+				});
+				
+				// Start auto-scroll initially
+				startAutoScroll();
+			</script>
+
+	</body>
+</html>
