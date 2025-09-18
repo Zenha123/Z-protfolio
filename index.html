@@ -13,259 +13,306 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			:root {
-				--black: #000000;
-				--white: #ffffff;
-				--dark-gray: #333333;
-				--medium-gray: #666666;
-				--light-gray: #f5f5f5;
-				--border-gray: #dddddd;
-			}
-           /* :root {
-  --primary: #4a6fa5;      Green for positive indicators */
+:root {
+  /* Theme Colors */
+  --bg-color: #F5F0E6;         /* Beige background */
+  --card-bg: #FFF7F9;          /* Light rose for cards */
+  --primary: #E6A4B4;          /* Muted rose pink */
+  --secondary: #D4B483;        /* Beige gold */
+  --text-dark: #2E2E2E;        /* Main text */
+  --text-muted: #6F6F6F;       /* Secondary text */
+  --hover: #C97C92;            /* Deeper rose for hover */
+}
 
-			
-			body {
-				background-color: var(--white);
-				color: var(--black);
-			}
-			
-			/* About Section */
-			.about-container {
-				display: flex;
-				align-items: center;
-				gap: 3rem;
-				margin-bottom: 3rem;
-			}
-			
-			.profile-image {
-				flex: 1;
-				display: flex;
-				justify-content: center;
-			}
-			
-			.profile-image img {
-				width: 200px;
-				height: 200px;
-				border-radius: 50%;
-				object-fit: cover;
-				border: 5px solid var(--black);
-				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-			}
-			
-			.about-content {
-				flex: 2;
-				padding: 1rem;
-			}
-			
-			/* Skills Section */
-			.skills {
-				background-color: var(--light-gray);
-				padding: 80px 0 100px 0;
-				margin-bottom: 1px;
-			}
-			
-			.skills h2 {
-				font-size: 30px;
-				color: var(--black);
-			}	
-			
-			.skill-row {
-				width: 50%;
-				margin: 100px auto;
-				text-align: left; 
-				line-height: 2;
-			}
-			
-			/* Experience Section */
-			.experience-container {
-				background-color: var(--white);
-				padding: 80px 0;
-			}
-			
-			.experience-header {
-				margin-bottom: 20px;
-			}
-			
-			.experience-title {
-				font-size: 1.5rem;
-				color: var(--black);
-				margin-bottom: 5px;
-			}
-			
-			.experience-company {
-				color: var(--medium-gray);
-				font-weight: 600;
-			}
-			
-			/* Projects Section */
-			.projects-scroll {
-				display: flex;
-				overflow-x: auto;
-				gap: 2rem;
-				padding-bottom: 1rem;
-				scroll-snap-type: x mandatory;
-			}
-			
-			.project-card {
-				min-width: 320px;
-				background: var(--white);
-				border-radius: 5px;
-				overflow: hidden;
-				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-				border: 1px solid var(--border-gray);
-				scroll-snap-align: start;
-				transition: all 0.3s ease;
-			}
-			
-			.project-card:hover {
-				box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-				transform: translateY(-5px);
-			}
-			
-			.project-image {
-				height: 200px;
-				overflow: hidden;
-				border-bottom: 1px solid var(--border-gray);
-			}
-			
-			.project-image img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				transition: transform 0.5s ease;
-			}
-			
-			.project-card:hover .project-image img {
-				transform: scale(1.05);
-			}
-			
-			.project-info {
-				padding: 1.5rem;
-			}
-			
-			.project-description {
-				position: relative;
-				overflow: hidden;
-				line-height: 1.6;
-				margin-bottom: 1.5rem;
-				color: var(--dark-gray);
-			}
-			
-			.project-description.collapsed {
-				max-height: 4.8em;
-				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				-webkit-box-orient: vertical;
-			}
-			
-			.read-more-btn {
-				display: inline-block;
-				color: var(--black);
-				font-weight: 600;
-				cursor: pointer;
-				margin-top: 0.5rem;
-				text-decoration: underline;
-			}
-			
-			.read-more-btn i {
-				margin-left: 0.3rem;
-				transition: transform 0.3s ease;
-			}
-			
-			/* Skills Tags */
-			.skill-tag {
-				display: inline-block;
-				background: var(--black);
-				color: var(--white);
-				padding: 0.4rem 1rem;
-				border-radius: 20px;
-				margin: 0.3rem;
-				font-size: 0.9rem;
-				transition: all 0.3s ease;
-			}
-			
-			.skill-tag:hover {
-				background: var(--dark-gray);
-			}
-			
-			/* Testimonials */
-			.testimonials-scroll {
-				display: flex;
-				overflow-x: auto;
-				gap: 2rem;
-				padding-bottom: 1rem;
-			}
-			
-			.testimonial-card {
-				min-width: 300px;
-				background: var(--white);
-				padding: 2rem;
-				border-radius: 5px;
-				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-				border: 1px solid var(--border-gray);
-			}
-			
-			.testimonial-text {
-				position: relative;
-				padding-left: 1.5rem;
-				margin-bottom: 1.5rem;
-				font-style: italic;
-				color: var(--dark-gray);
-			}
-			
-			.testimonial-text:before {
-				content: '"';
-				font-size: 3rem;
-				color: var(--black);
-				opacity: 0.2;
-				position: absolute;
-				left: -0.5rem;
-				top: -1rem;
-			}
-			
-			.testimonial-author {
-				font-weight: 600;
-				color: var(--black);
-			}
-			
-			.testimonial-role {
-				color: var(--medium-gray);
-				font-size: 0.9rem;
-			}
-			
-			/* Buttons */
-			.button {
-				background-color: var(--black);
-				color: var(--white) !important;
-				border: 1px solid var(--black);
-			}
-			
-			.button:hover {
-				background-color: var(--white);
-				color: var(--black) !important;
-			}
-			
-			/* Responsive Adjustments */
-			@media screen and (max-width: 736px) {
-				.about-container {
-					flex-direction: column;
-					text-align: center;
-				}
-				
-				.profile-image {
-					margin-bottom: 1.5rem;
-				}
-				
-				.project-card {
-					min-width: 280px;
-				}
-				
-				.skill-row {
-					width: 80%;
-				}
-			}
-		</style>
+/* General Styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.profile-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-content {
+  flex: 2;
+  padding: 1rem;
+}
+
+/* Skills Section */
+.skills {
+  background-color: var(--card-bg);
+  padding: 80px 0 100px 0;
+  margin-bottom: 1px;
+}
+
+.skills h2 {
+  font-size: 30px;
+  color: var(--primary);
+}	
+
+.skill-row {
+  width: 50%;
+  margin: 100px auto;
+  text-align: left; 
+  line-height: 2;
+}
+
+/* Experience Section */
+.experience-container {
+  background-color: var(--bg-color);
+  padding: 80px 0;
+}
+
+.experience-title {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.experience-company {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Projects Section */
+.projects-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+.project-card {
+  min-width: 320px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid var(--secondary);
+  scroll-snap-align: start;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  border-color: var(--hover);
+}
+
+.project-image {
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.5rem;
+  color: var(--text-dark);
+}
+
+.project-description {
+  position: relative;
+  overflow: hidden;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+}
+
+/* Skills Tags */
+.skill-tag {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin: 0.3rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: var(--hover);
+}
+
+/* Testimonials */
+.testimonial-card {
+  min-width: 300px;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border: 1px solid var(--secondary);
+}
+
+.testimonial-text {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.testimonial-text:before {
+  content: '"';
+  font-size: 3rem;
+  color: var(--primary);
+  opacity: 0.2;
+  position: absolute;
+  left: -0.5rem;
+  top: -1rem;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.testimonial-role {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.button {
+  background-color: var(--primary);
+  color: #fff !important;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--hover);
+  color: #fff !important;
+}
+
+section {
+  width: 85%;
+  margin: 40px auto;
+}
+
+/* Project List (cards in grid) */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  padding: 15px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid var(--secondary);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-color: var(--hover);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 736px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-card {
+    min-width: 280px;
+  }
+  
+  .skill-row {
+    width: 80%;
+  }
+}
+
+
+/* Apply background on all screens */
+/* #intro {
+    padding: 3rem 2rem 1rem 2rem;
+    min-height: 80vh;
+    background-color: rgba(255, 228, 225, 0.8); 
+    color: black;
+}
+
+
+@media screen and (max-width: 736px) {
+    #intro {
+        padding: 3rem 2rem 1rem 2rem;
+    }
+} */
+#intro{
+	background-color: #C97C92;
+}
+#wrapper > .bg.fixed {
+	background-color: #C97C92!important;
+	background-color: linear-gradient(135deg, #ffe4e1, #f5f5dc) !important;
+}
+.card p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #1e252d;
+}
+  
+</style>
+
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	</head>
 	<body class="is-preload">
@@ -275,41 +322,41 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<h1>Abdul Raheem PC</h1>
-						<p>Python Developer specializing in Django, FastAPI, and cloud deployments</p>
+						<h1>Zenha Fathima</h1>
+						<p>Full Stack Developer specializing in Django, REST API, React and frontend technologies.</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
 					</div>
 
-				<!-- Header -->
+				
 					<header id="header">
-						<a href="index.html" class="logo">AR Portfolio</a>
+						<a href="index.html" class="logo">Portfolio</a>
 					</header>
 
-				<!-- Nav -->
+				
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="#about">About</a></li>
-							<li><a href="#experience">Experience</a></li>
+							
 							<li><a href="#projects">Projects</a></li>
-							<li><a href="#testimonials">Testimonials</a></li>
+							
 							<li><a href="#contact">Contact</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.linkedin.com/in/zenha-fathima-b37101270/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/Zenha123" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							
 						</ul>
 					</nav>
 
-				<!-- Main -->
+				
 					<div id="main" data-aos="flip-left"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000">
 
-						<!-- About Section -->
+						
 							<article class="post featured" id="about">
 								<header class="major">
 									<h2>About Me</h2>
@@ -317,7 +364,7 @@
 								
 								<div class="about-container">
 									<div class="profile-image">
-										<img src="images/img.jpg" alt="Abdul Raheem PC" />
+										<img src="images/zen img.jpg" alt="Abdul Raheem PC" />
 									</div>
 									<div class="about-content">
 										<p>I'm a passionate Python developer with experience in creating scalable backend solutions. I specialize in Django, FastAPI, and cloud deployments with a focus on performance and maintainability.</p>
@@ -326,28 +373,35 @@
 										<div id="skills">
 											<span class="skill-tag">Python</span>
 											<span class="skill-tag">Django</span>
-											<span class="skill-tag">Flask</span>
-											<span class="skill-tag">FastAPI</span>
-											<span class="skill-tag">PostgreSQL</span>
+											<span class="skill-tag">Firebase</span>
 											<span class="skill-tag">REST API</span>
-											<span class="skill-tag">GraphQL</span>
-											<span class="skill-tag">AWS</span>
-											<span class="skill-tag">Azure</span>
-											<span class="skill-tag">Docker</span>
+											<span class="skill-tag"> React </span>
+											<span class="skill-tag">JWT </span>
+											<span class="skill-tag">JSON</span>
+											<span class="skill-tag">MySQL</span>
+											<span class="skill-tag">PostgreSQL</span>
+											<span class="skill-tag">SQLite</span>
 											<span class="skill-tag">Git</span>
-											<span class="skill-tag">Celery</span>
+											<span class="skill-tag"> HTML </span>
+											<span class="skill-tag">CSS </span>
 											<span class="skill-tag">JavaScript</span>
+											<span class="skill-tag">Java </span>
+											<span class="skill-tag">C Programming  </span>
+											<span class="skill-tag">OOP </span>
+											<span class="skill-tag">Data Structures  </span>
+											<span class="skill-tag">UI/UX Design </span>
+												
 										</div>
 										
-										<ul class="actions special">
+										<!-- <ul class="actions special">
 											<li><a href="#" class="button large">Download CV</a></li>
-										</ul>
+										</ul> -->
 									</div>
 								</div>
 							</article>
 
-						<!-- Experience Section -->
-						<div class="skills">
+						
+						<!-- <div class="skills">
 							<h2 class="head">My Experience</h2>
 							<div class="skill-row">
 								<h3>Python Developer</h3>
@@ -361,7 +415,7 @@
 							</div>
 						</div>
 
-						<!-- Projects Section -->
+						
 							<article class="post featured" id="projects">
 								<header class="major">
 									<h2>My Projects</h2>
@@ -414,7 +468,7 @@
 							
 							
 
-						<!-- Contact Section -->
+					
 							<section class="post featured" id="contact">
 								<header class="major">
 									<h2>Get In Touch</h2>
@@ -433,13 +487,33 @@
 										</ul>
 									</div>
 								</div>
-							</section>
+							</section> -->
+							
 
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="project-list">
+  <div class="card"><h4>E-Product Repair & Customer Care Portal (Reparohub)</h4><p>Full-stack platform for product registration, repair requests, real-time status updates, role-based logins, and encrypted chat using Django Channels & WebSockets.</p></div>
+  <div class="card"><h4>Firebase Chat App</h4><p>Real-time multi-user chat using React.js & Firebase with secure authentication, Firestore messaging, and responsive design.</p></div>
+  <div class="card"><h4>Car Rental Booking System</h4><p>Django-based dynamic car rental platform with price sorting, car specifications, and responsive UI.</p></div>
+  <div class="card"><h4>Quiz Website (BugsonMedia)</h4><p>Interactive MCQ platform with timers and scoring system built using Django, HTML, CSS, and JavaScript.</p></div>
+  <div class="card"><h4>Apple E-Commerce Website</h4><p>Responsive static website showcasing Apple products with smooth animations and optimized performance.</p></div>
+  <div class="card"><h4>Personal Portfolio Websites</h4><p>Multiple portfolio projects with responsive layouts, animations, and deployed on GitHub Pages, Netlify, and Vercel.</p></div>
+</div>
+
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:fathimazenha21@gmail.com">fathimazenha21@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919037720191">+91 9037720191</a></p>
+    <p>Location: Thalassery, Kerala</p>
+  </section>
 					</div>
 
-				<!-- Copyright -->
+				
 					<div id="copyright">
-						<ul><li>&copy; Abdul Raheem PC</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Zenha Fathima</li></ul>
 					</div>
 
 			</div>
